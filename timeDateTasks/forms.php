@@ -171,7 +171,28 @@ if (isset($_SESSION['msg-twoDates'])) {
 ?>
     </p>
 <hr>
+<form class="mt-4" action="" method="post">
+      <label for="date1" class="text-warning">Enter first date</label>
+      <input type="text" placeholder="2025-12-31" class="form-control" id="date1" name="date1"/>
+      <label for="date2" class="text-warning">Enter second date</label>
+      <input type="text" placeholder="2025-12-31" class="form-control" id="date1" name="date2"/>
+      <button class="btn btn-outline-warning mt-3">Submit</button>
+    </form>
 
+    <p class="text-danger">
+      <?php
+if (isset($_SESSION['err-msg-twoDates'])) {
+    echo $_SESSION['err-msg-twoDates'];
+}
+?>
+    </p>
+    <p class="text-warning">
+      <?php
+if (isset($_SESSION['msg-twoDates'])) {
+    echo $_SESSION['msg-twoDates'];
+}
+?>
+    </p>
   </div>
 </body>
 </html>

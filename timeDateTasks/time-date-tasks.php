@@ -85,3 +85,10 @@ echo $months[idate('m')] . "</br>";
 
 echo date('t') . "</br>";
 
+// task strtotime
+
+function changeDateFormat($str) {
+  return date('d-m-Y', strtotime($str));
+}
+
+echo changeDateFormat('2025-12-31');
