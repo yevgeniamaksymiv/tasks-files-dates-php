@@ -61,7 +61,6 @@ echo $week[$num] . "</br>";
 $num = getNumberWeekDay('1981-10-28');
 echo $week[$num] . "</br>";
 
-
 // 4
 
 $months = array(
@@ -85,10 +84,47 @@ echo $months[idate('m')] . "</br>";
 
 echo date('t') . "</br>";
 
-// task strtotime
+// 6
 
-function changeDateFormat($str) {
-  return date('d-m-Y', strtotime($str));
+function changeDateFormat($str)
+{
+    return date('d-m-Y', strtotime($str));
 }
 
-echo changeDateFormat('2025-12-31');
+echo changeDateFormat('2025-12-31') . "</br>";
+
+// 7
+
+$dateStr = '2025-12-31';
+
+$date = date_create($dateStr);
+date_modify($date, '+2 days');
+date_modify($date, '+1 month 3 days');
+date_modify($date, '+1 year');
+date_modify($date, '-3 days');
+
+echo date_format($date, 'Y-m-d') . "</br>";
+
+// 8
+
+function countDaysToNewYear()
+{
+    $newYear = mktime(0, 0, 0, 12, 31, date('Y'));
+    $today = time();
+    $diff = $newYear - $today;
+    if ($diff < 0) {
+      $diff = 0;
+    }
+    return floor($diff / 60 / 60 / 24) . " days left until New Year";
+}
+
+echo countDaysToNewYear() . "</br>";
+
+// 9
+
+function getWeekDay100DaysAgo() {
+  $date = strtotime("-100 day");
+  return date('l', $date);
+}
+
+echo getWeekDay100DaysAgo() . "</br>";
